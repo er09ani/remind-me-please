@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- to include css bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Document</title>
+  <style>
+  </style>
+  <style>
+    /* body::before {
+    display: block;
+    content: '';
+    height: 60px;
+} */
+
+body{
+  overflow: clip;
+}
+
+  </style>
+  
+</head>
+
+<body>
+  <!-- NavBar -->
+  
+
+  <!-- Navbar -->
+    <nav class="navbar bg-secondary navbar-dark py-3">
+      <div class="container-fluid ">
+          <a href="#home" class="col-sm-6 col-md-6 col-lg-11 navbar-brand"><h2><span class="i bi-alarm-fill">  Remind Me!</span></h2></a>
+          <button class="navbar-toggler " 
+                  type="button" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#myModal"
+                  > 
+                  <h3><span class="i bi-person-lines-fill"></span></h3>
+          </button>
+          <!-- <button class="navbar-toggler " 
+                  type="button" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#navModal"
+                  > 
+                  <h3><span class="i bi-person-lines-fill"></span></h3>
+          </button> -->
+          <!-- <div class="col-1 bg-dark text-light"><h3> Log out<span class="i bi-arrow-right-square-fill"></span></h3></div> -->
+          
+       </div>
+      </nav>
+       <!-- main page body -->
+      <section>
+        <!-- Side Navbar -->
+        <div class="row me-0 mb-0 vh-100">
+        <div id="sideNav" class="col-lg-2 col-md-2 col-sm-2 col-4 p-1 bg-dark ">
+          <!-- <hr> -->
+          <ul class="nav nav-pills mb-auto">
+            <!-- <li class="nav-item">
+              <a href="#" class="nav-link link-dark" aria-current="page">
+                <svg class="bi me-2" width="16" height="16"></svg>
+                Home
+              </a>
+            </li>
+            <hr> -->
+            <li>
+              <a href="#" class="nav-link link-light">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                Dashboard
+              </a>
+            </li>
+            <hr>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                Reminders
+              </a>
+            </li>
+            <hr>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                Profile
+              </a>
+            </li>
+            <hr>
+          </ul>
+          <hr>
+          <!-- <div class="dropdown">
+            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>mdo</strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div> -->
+        </div>
+        <div id="mainContent" class="col-lg-10 col-md-10 col-sm-10 col-12 bg-secondary bg-gradient p-5">
+          <!-- <button id="sideNavToggle"class=".d-none navbar-button bg-dark" 
+            type="button" 
+            onclick="toggleDiv()"
+            > 
+            <h1><span class="i bi-arrow-left-circle-fill text-light"></span></h1>
+          </button> -->
+            <div class="jumbotron">
+              <h1 class="display-5">Welcome!</h1>
+              <p class="lead">This Web Application lets you create reminders and receive notifications via email / SMS</p>
+              <hr class="my-4">
+              <p>Feel free to use!</p>
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      </section>
+   
+          
+          <!-- Main body right -->
+    <section>
+      
+    </section>
+
+    <!-- Left Side Navigation for Small Screens -->
+    <!-- <section>
+      <div class="modal left" id="navModal" tabindex="-1" aria-labelledby="sideNavLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+        <div class="modal-content bg-secondary">
+            <div class="modal-header">
+            <h5 class="col-12 modal-title text-center" id="exampleModalLabel">Sign In</h5>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            </div>
+            </div>
+            </div>
+    </section> -->
+	<!-- to include js and jQuery bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      var myModal = new bootstrap.Modal(document.getElementById('myModal'), {})
+        // myModal.toggle();
+
+        function toggleDiv(){
+          var x = document.getElementById("sideNav");
+          var y = document.getElementById("mainContent");
+          
+          // if (x.style.display === "none") {
+          //   x.style.display = "block";
+          // } else {
+          //   x.style.display = "none";
+          //   y.style.height = "960px";
+          //   y.style.width = "90%";
+          // }
+        }
+    </script>
+</body>
+</html>

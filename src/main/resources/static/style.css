@@ -1,0 +1,49 @@
+/* body::before {
+    display: block;
+    content: '';
+    height: 60px;
+} */
+/* @media (min-width: 768px){
+    #sideNavToggle {
+        display: none;
+    }
+}
+
+/*  */
+@media (max-width: 768px){
+    #sideNav {
+        display: none;
+    }
+} */
+
+#map {
+    height: 300px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+
+@media (max-width: 576px){
+    #sidebar-wrapper {
+        padding: .5rem;
+        box-sizing: border-box;
+    }
+}
+   #myModal .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    right: 50px;
+    top:88px;
+}
+#navModal .modal-dialog {
+    position: fixed;
+    margin: 0px;
+    width: 125px;
+    height: 100%;
+    left: 0px;
+    top:88px;
+}
+
+
