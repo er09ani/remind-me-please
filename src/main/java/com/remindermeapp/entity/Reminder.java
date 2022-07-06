@@ -47,8 +47,8 @@ public class Reminder {
 	public ReminderStatus remiderStatus;
 	
 	@ManyToOne
-	@JoinColumn(name="business_user_id")
-	public BusinessUser businessUser;
+	@JoinColumn()
+	private BusinessUser businessUser;
 	
 
 	public Reminder() {

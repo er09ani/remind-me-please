@@ -9,6 +9,7 @@ public class UserRegistrationForm {
 	String confirmedPassword;
 	String firstName;
 	String lastName;
+	private String phoneNumber;
 	
 	
 	
@@ -47,6 +48,12 @@ public class UserRegistrationForm {
 	}
 	public void setConfirmedPassword(String confirmedPassword) {
 		this.confirmedPassword = confirmedPassword;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	
 	

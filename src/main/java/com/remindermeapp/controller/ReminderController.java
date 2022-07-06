@@ -54,7 +54,8 @@ public class ReminderController {
 		 List<Reminder> listOfReminders = new LinkedList<>();
 		 Optional<BusinessUser> OpBusinessUser = businessUserRepo.findByCustomUser((userRepo.findByEmailId(loggedInUserName)).get(0));
 		 BusinessUser businessUser = OpBusinessUser.get();
-		 listOfReminders = (List<Reminder>) businessUser.getReminders();
+		 System.out.println(businessUser);
+		 listOfReminders = (List<Reminder>) reminderRepo.findAllByBusinessUser(businessUser);
 		 System.out.println(listOfReminders);
 		 
 		 List<ReminderForm> remindersForm = new LinkedList<ReminderForm>();
@@ -85,7 +86,8 @@ public class ReminderController {
 	@PostMapping("/reminders")
 	public String saveReminder(Model model, @ModelAttribute ReminderForm reminderForm) throws ParseException {
 		
-		 String loggedInUserName = "er09ani@gmail.com";
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String loggedInUserName = auth.getName();
 		 
 		 List<Reminder> listOfReminders = new LinkedList<>();
 		 
@@ -97,6 +99,7 @@ public class ReminderController {
 //		 System.out.println("emailChecked");
 //		 if(reminderForm.isPhoneNumberChecked)
 //		 System.out.println("phoneNuberChecked");
+		 
 		 Reminder reminder = new Reminder(reminderForm);
 		 reminder.setBusinessUser(businessUser);
 		 reminder.setCreatedOn(new Date());

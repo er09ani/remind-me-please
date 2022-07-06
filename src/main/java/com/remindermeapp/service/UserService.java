@@ -35,6 +35,7 @@ public class UserService {
 		user.setFirstName(userRegistrationForm.getFirstName());
 		user.setLastName(userRegistrationForm.getFirstName());
 		user.setPassword(passwordEncoder.encode(userRegistrationForm.getPassword()));
+		user.setPhoneNumber(userRegistrationForm.getPhoneNumber());
 //		user.setPassword((userRegistrationForm.getPassword()));
 		List<AppRoles> listOfRoles = new LinkedList<>();
 		listOfRoles.add(AppRoles.USER);

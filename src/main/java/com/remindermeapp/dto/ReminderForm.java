@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import com.remindermeapp.entity.Reminder;
+import com.remindermeapp.enums.ReminderStatus;
 import com.remindermeapp.utils.DateUtil;
 
 public class ReminderForm {
@@ -31,8 +32,21 @@ public class ReminderForm {
 	public boolean phoneNumberChecked;
 	
 	private String timeInRegularFormat;
-
+	
 	private String dateInRegularFormat;
+	
+	private String remiderStatus;
+
+	public String getRemiderStatus() {
+		return remiderStatus;
+	}
+
+
+
+	public void setRemiderStatus(ReminderStatus remiderStatus) {
+		this.remiderStatus = remiderStatus.getSval();
+	}
+
 
 	public ReminderForm() {
 		
@@ -53,6 +67,7 @@ public class ReminderForm {
 		this.sendTime = reminder.getSendTime();
 		this.setTimeInRegularFormat(DateUtil.getTimeInRegularFormat(sendTime));
 		this.setDateInRegularFormat(DateUtil.getDateInRegularFormat(sendTime));
+		this.setRemiderStatus(reminder.getRemiderStatus());
 	}
 
 

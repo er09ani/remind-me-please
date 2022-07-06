@@ -76,8 +76,10 @@ public class MyApplicationRunner implements ApplicationRunner {
 		Reminder reminder = new Reminder();
 		reminder.setTitle("Reminder"+ index +" "+user);
 		reminder.setMessage("Message "+ user);	
-		reminder.setSendTime(new Date(new Date().getTime() + 60 * 1000 * index * 5));
-		reminder.setCreatedOn(new Date(new Date().getTime() + 60 * 1000 * index));
+		int i = 1;
+		if(index %2 == 0) i = 2;
+		reminder.setSendTime(new Date(new Date().getTime() + 60 * 1000  * i));
+		reminder.setCreatedOn(new Date(new Date().getTime() + 60 * 1000 * 1));
 		reminder.setRemiderStatus(ReminderStatus.PENDING);
 		reminder.setBusinessUser(businessUser2);
 		
