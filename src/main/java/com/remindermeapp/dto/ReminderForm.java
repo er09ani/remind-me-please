@@ -29,6 +29,10 @@ public class ReminderForm {
 	public boolean emailIdChecked;
 	
 	public boolean phoneNumberChecked;
+	
+	private String timeInRegularFormat;
+
+	private String dateInRegularFormat;
 
 	public ReminderForm() {
 		
@@ -43,6 +47,12 @@ public class ReminderForm {
 		this.date = DateUtil.getDateStringFromDateObject(reminder.getSendTime());
 		this.time = DateUtil.getTimeStringFromDateObject(reminder.getSendTime());
 		this.modifiedOn = reminder.getModifiedOn();
+		
+		this.emailIdChecked = reminder.isEmailIdChecked();
+		this.phoneNumberChecked = reminder.isPhoneNumberChecked();
+		this.sendTime = reminder.getSendTime();
+		this.setTimeInRegularFormat(DateUtil.getTimeInRegularFormat(sendTime));
+		this.setDateInRegularFormat(DateUtil.getDateInRegularFormat(sendTime));
 	}
 
 
@@ -175,6 +185,30 @@ public class ReminderForm {
 
 	public void setPhoneNumberChecked(boolean phoneNumberChecked) {
 		this.phoneNumberChecked = phoneNumberChecked;
+	}
+
+
+
+	public String getTimeInRegularFormat() {
+		return timeInRegularFormat;
+	}
+
+
+
+	public void setTimeInRegularFormat(String timeInRegularFormat) {
+		this.timeInRegularFormat = timeInRegularFormat;
+	}
+
+
+
+	public String getDateInRegularFormat() {
+		return dateInRegularFormat;
+	}
+
+
+
+	public void setDateInRegularFormat(String dateInRegularFormat) {
+		this.dateInRegularFormat = dateInRegularFormat;
 	}
 
 

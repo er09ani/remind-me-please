@@ -52,35 +52,36 @@ public class MyApplicationRunner implements ApplicationRunner {
 		users.add(user1);
 		users.add(user2);
 		
-		SimpleDateFormat formatter=new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss"); 
-		
-		List<Reminder> reminders = new LinkedList<>();
-		Reminder reminder1 = new Reminder();
-		reminder1.setMessage("reminder1");
-		
-		
-		Date date1 = new Date();
-		System.out.println(date1);
-		reminder1.setSendTime(new Date(date1.getTime() + 60 * 1000 * 5));
-		reminder1.setCreatedOn(date1);
-		reminder1.setRemiderStatus(ReminderStatus.PENDING);
-
-		System.out.println("reminder1 sendTime:" + reminder1.getSendTime());
-		reminder1.setBusinessUser(businessUser2);
-		//reminder1.setCreatedOn(Date.valueOf(localDate.toString()));
-		reminder1.setTitle("REMINDER1:TITLE");
-		List<Reminder> remindersOfB2 = new LinkedList<Reminder>();
-		remindersOfB2.add(reminder1);
-		businessUser2.setReminders(remindersOfB2);
+		fillWithReminders(businessUser1, "User");
+		fillWithReminders(businessUser2, "Admin");
 		try {
-			
 			userRepository.saveAll(users);
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		
+	}
+
+	private void fillWithReminders(BusinessUser businessUser, String user) {
+		List<Reminder> businessUserReminders = new LinkedList<>();
+		for(int i = 0; i < 3; i++) {
+			getReminders(businessUser, i,businessUserReminders, user);
+		}
+		
+		businessUser.setReminders(businessUserReminders);
+	}
+
+	private void getReminders(BusinessUser businessUser2, int index,List<Reminder> businessUserReminders,String user ) {
+		Reminder reminder = new Reminder();
+		reminder.setTitle("Reminder"+ index +" "+user);
+		reminder.setMessage("Message "+ user);	
+		reminder.setSendTime(new Date(new Date().getTime() + 60 * 1000 * index * 5));
+		reminder.setCreatedOn(new Date(new Date().getTime() + 60 * 1000 * index));
+		reminder.setRemiderStatus(ReminderStatus.PENDING);
+		reminder.setBusinessUser(businessUser2);
+		
+		businessUserReminders.add(reminder);
 	}
     
 }
