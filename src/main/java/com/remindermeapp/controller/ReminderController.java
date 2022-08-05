@@ -84,7 +84,7 @@ public class ReminderController {
 	
 //	Create
 	@PostMapping("/reminders")
-	public String saveReminder(Model model, @ModelAttribute ReminderForm reminderForm) throws ParseException {
+	public String saveReminder(Model model, @ModelAttribute ReminderForm reminderForm){
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String loggedInUserName = auth.getName();

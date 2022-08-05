@@ -17,10 +17,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.remindermeapp.entity.BusinessUser;
+import com.remindermeapp.entity.EmailDetails;
 import com.remindermeapp.entity.Reminder;
 import com.remindermeapp.enums.AppRoles;
 import com.remindermeapp.enums.ReminderStatus;
 import com.remindermeapp.repository.UserRepository;
+import com.remindermeapp.service.EmailService;
 import com.remindermeapp.user.CustomUser;
 
 @Component
@@ -31,6 +33,9 @@ public class MyApplicationRunner implements ApplicationRunner {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired 
+	EmailService emailService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -58,6 +63,14 @@ public class MyApplicationRunner implements ApplicationRunner {
 			userRepository.saveAll(users);
 		}catch(Exception e) {
 			e.printStackTrace();
+		}
+		finally {
+//			System.out.println("sending an email!");
+//			EmailDetails emailDetails = new EmailDetails("er09ani@gmail.com",
+//					"<h1>Hi</h1>", "Reminder For You!", null);
+//				if(emailService.sendSimpleMail(emailDetails)) {
+//					System.out.println("email sent!");
+//				}
 		}
 		
 		
